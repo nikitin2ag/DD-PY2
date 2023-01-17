@@ -15,6 +15,13 @@ BOOKS_DATABASE = [
 # TODO написать класс Book
 class Book:
     def __init__(self, id_: int, name: str, pages: int):
+        """
+        Создание и подготовка к работе объекта "Книга".
+        :param id_: Идентификатор (ID) книги
+        :param name: Название книги
+        :param pages: Число страниц в книге
+        """
+
         self.id = id_
         self.name = name
         self.pages = pages
@@ -27,17 +34,35 @@ class Book:
 
 
 class Library:
+    """
+    Создание и подготовка к работе объекта "Библиотека".
+    :param books: Список книг
+    """
+
     def __init__(self, books: list[Book] = None):
         if books is None:
             books = []
         self.books = books
 
     def get_next_book_id(self):
+        """
+        Получить ID для добавления новой книги в библиотеку.
+        :return Если запрошенной книги нет, то возвращается 1
+        :return: Количество книг в библиотеке
+        """
+
         if len(self.books) == 0:
             return 1
         return self.books[-1].id + 1
 
     def get_index_by_book_id(self, id):
+        """
+        Получение индекса книги в списке по её ID.
+        :param id_: Идентификатор (ID) книги
+        :raise ValueError: Если запрошенной книги нет, то срабатывает ошибка
+        :return: Индекс книги
+        """
+
         for index, book in enumerate(self.books):
             if book.id == id:
                 return index
