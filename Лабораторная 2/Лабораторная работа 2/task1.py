@@ -12,9 +12,15 @@ BOOKS_DATABASE = [
 ]
 
 
-# TODO написать класс Book
 class Book:
     def __init__(self, id_: int, name: str, pages: int):
+        """
+        Создание и подготовка к работе объекта "Книга".
+        :param id_: ID книги
+        :param name: Имя книги
+        :param pages: Кол-во страниц в книге
+        """
+
         self.id = id_
         self.name = name
         self.pages = pages
